@@ -50,6 +50,7 @@ public class Calculator {
 
                 last_operator = expr.charAt(i);
                 num_begin = i + 1;
+                
             }
 
             if(i == expr.length() - 1) {
@@ -73,7 +74,7 @@ public class Calculator {
             case '%': return a % b;
             case '^': return Math.pow(a, b);
             default: return 0;
-            
+
         }
 
     }
