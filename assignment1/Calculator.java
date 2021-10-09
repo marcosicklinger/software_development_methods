@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.lang.Math;
 
 public class Calculator {
 
@@ -21,7 +22,8 @@ public class Calculator {
         char last_operator = '+';
 
         for (int i = num_begin; i < expr.length(); i += 1) {
-            if (expr.charAt(i) == '+' || expr.charAt(i) == '-' || expr.charAt(i) == '/' || expr.charAt(i) == '*') {
+            if (expr.charAt(i) == '+' || expr.charAt(i) == '-' || expr.charAt(i) == '/' || expr.charAt(i) == '*' ||
+                expr.charAt(i) == '%' || expr.charAt(i) == '^') {
                 if (i == 0 || i - num_begin == 0) {
                     last_operator = expr.charAt(i);
                     num_begin = i + 1;
@@ -58,6 +60,8 @@ public class Calculator {
             case '-': return a - b;
             case '/': return a / b;
             case '*': return a * b;
+            case '%': return a % b;
+            case '^': return Math.pow(a, b);
             default: return 0;
         }
 
