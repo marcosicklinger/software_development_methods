@@ -22,32 +22,41 @@ public class Calculator {
         char last_operator = '+';
 
         for (int i = num_begin; i < expr.length(); i += 1) {
+
             if (expr.charAt(i) == '+' || expr.charAt(i) == '-' || expr.charAt(i) == '/' || expr.charAt(i) == '*' ||
                 expr.charAt(i) == '%' || expr.charAt(i) == '^') {
+
                 if (i == 0 || i - num_begin == 0) {
+
                     last_operator = expr.charAt(i);
                     num_begin = i + 1;
+
                     continue;
+
                 }
 
                 operand = Double.parseDouble(expr.substring(num_begin, i));
 
                 if (num_begin == 0 || num_begin == 1) {
+
                     result = operand;
+
                 } else {
+
                     result = operation(result, operand, last_operator);
                     System.out.println(result);
+
                 }
 
                 last_operator = expr.charAt(i);
-        
                 num_begin = i + 1;
             }
 
             if(i == expr.length() - 1) {
+
                 operand = Double.parseDouble(expr.substring(num_begin));
-            
                 System.out.println(operation(result, operand, last_operator));
+
             }
 
         }
@@ -56,6 +65,7 @@ public class Calculator {
     public static double operation(double a, double b, char operator) {
 
         switch (operator) {
+
             case '+': return a + b;
             case '-': return a - b;
             case '/': return a / b;
@@ -63,6 +73,7 @@ public class Calculator {
             case '%': return a % b;
             case '^': return Math.pow(a, b);
             default: return 0;
+            
         }
 
     }
